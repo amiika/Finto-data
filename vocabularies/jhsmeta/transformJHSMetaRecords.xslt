@@ -7,6 +7,7 @@ xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#" 
 xmlns:skos="http://www.w3.org/2004/02/skos/core#"
 xmlns:owl="http://www.w3.org/2002/07/owl#"
+xmlns:status="https://www.w3.org/2003/06/sw-vocab-status/ns#"
 xmlns:dct="http://purl.org/dc/terms/"
 xmlns:dc="http://purl.org/dc/elements/1.1/"
 xmlns:jhsSanasto="http://jhsmeta.fi/schemas/JHS_Metatiedot_Kasiteartikkeli_Atomaarinen_20100311.xsd" 
@@ -87,7 +88,7 @@ exclude-result-prefixes="xsl xs fn jhsSanasto jhsKasite">
 				<rdfs:seeAlso>
 					<xsl:attribute name="rdf:resource" select="$seeAlso"/>
 				</rdfs:seeAlso>
-				<owl:versionInfo><xsl:value-of select="$tila"/></owl:versionInfo>
+				<status:term_status><xsl:value-of select="$tila"/></status:term_status>
 			</skos:Concept>
 		<!--</xsl:if>-->
 	</xsl:template>
