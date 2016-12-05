@@ -31,6 +31,7 @@ exclude-result-prefixes="xsl xs fn jhsSanasto jhsKasite">
 			<dct:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#dateTime"><xsl:value-of  select="current-dateTime()"/></dct:modified>
 			<dct:language rdf:resource="http://lexvo.org/id/iso639-3/fin"/>
 			<dc:title xml:lang="fi">JHSMeta - Julkishallinnon määrittelevä sanasto</dc:title>
+			<skos:prefLabel xml:lang="fi">JHSMeta - Julkishallinnon määrittelevä sanasto</skos:prefLabel>
 			<dc:description xml:lang="fi">Generoitu automaattisesti JHS sanastotyöryhmän sanastotyökalusta (http://jhsmeta.fi), jossa organisaatiot muodostavat yhteisiä ja yhteentoimivuutta tukevia sanastoja.</dc:description>
 			<dc:creator xml:lang="fi">JHS sanastotyöryhmä</dc:creator>
 			</skos:ConceptScheme>
@@ -100,6 +101,13 @@ exclude-result-prefixes="xsl xs fn jhsSanasto jhsKasite">
 		</skos:definition>
 	</xsl:template>
 	
+	<xsl:template match="jhsSanasto:HuomautusTeksti">
+		<skos:note>
+			<xsl:attribute name="xml:lang" select="@xml:lang"/>
+			<xsl:value-of select="normalize-space()"/>
+		</skos:note>
+	</xsl:template>
+	
 	<xsl:template match="jhsSanasto:SovittuTermiTeksti">
 		<skos:prefLabel>
 			<xsl:attribute name="xml:lang" select="@xml:lang"/>
@@ -120,6 +128,16 @@ exclude-result-prefixes="xsl xs fn jhsSanasto jhsKasite">
 		<skos:related>
 			<xsl:attribute name="rdf:resource"><xsl:value-of select="concat($jhsnamespace,encode-for-uri($id))"/></xsl:attribute>
 		</skos:related>
+	</xsl:template>
+	
+    <xsl:template match="jhsSanasto:YlakasiteTeksti">
+		<xsl:variable name="fullid" select="."/>
+		<xsl:if test="$fullid!='Ei tietoa'"> 
+			<xsl:variable name="id" select="tokenize($fullid,'/')[last()]"/>
+			<skos:broader>
+				<xsl:attribute name="rdf:resource"><xsl:value-of select="concat($jhsnamespace,encode-for-uri($id))"/></xsl:attribute>
+			</skos:broader>
+		</xsl:if>
 	</xsl:template>
 	
 	<xsl:template match="text()">

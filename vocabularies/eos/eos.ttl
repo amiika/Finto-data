@@ -20,7 +20,7 @@ eos:Ilmoittautuminen
   rdf:type skos:Collection ;
   skos:member eos:tmpOKSAID496 ;
   skos:member eos:tmpOKSAID497 ;
-  skos:prefLabel "toiminta opetukseen tai koulutukseen pääsemiseksi"@fi ;
+  skos:prefLabel "toiminta opetukseen tai koulutukseen pääsemiseksi" ;
 .
 eos:Koulutusaste
   rdf:type skos:Collection ;
@@ -31,7 +31,7 @@ eos:sanasto
   dc:creator "CSC - Tieteen tietotekniikan keskus"@fi ;
   dc:description """EOS - Elinikäisen oppimisen sanasto on CSC:n tuottama esimerkkitoteutus OKSA - Opetus- ja koulutussanastosta SKOS muodossa.
   Sanaston avulla on tarkoitus testata koneluettavan sanaston kehittämis- ja julkaisuprosessia ja sanastojen hyödyntämistä tietoarkkitehtuuin kehittämisessä."""@fi ;
-  dc:title "Elinikäisen oppimisen sanasto"@fi ;
+  dc:title "Elinikäisen oppimisen sanasto"^^rdfs:Literal ;
   dc:title "Vocabulary of Lifelong Learning"@en ;
   dct:language <http://lexvo.org/id/iso639-3/fin> ;
   dct:modified "2016-02-03T07:07:23.135Z"^^xsd:dateTime ;
@@ -42,7 +42,7 @@ eos:tmpOKSAID121
 Englannin käsite education on laajempi kuin suomen koulutus; education kattaa koulutuksen lisäksi opetuksen ja kasvatuksen."""@fi ;
   skos:definition "organisoitu toiminta, jonka tavoitteena on tuottaa opetukseen perustuvaa osaamista"@fi ;
   skos:inScheme eos:sanasto ;
-  skos:prefLabel "education"@en ;
+  skos:prefLabel "education" ;
   skos:prefLabel "koulutus"@fi ;
   skos:prefLabel "utbildning"@sv ;
 .
