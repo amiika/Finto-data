@@ -89,7 +89,15 @@ exclude-result-prefixes="xsl xs fn jhsSanasto jhsKasite">
 				<rdfs:seeAlso>
 					<xsl:attribute name="rdf:resource" select="$seeAlso"/>
 				</rdfs:seeAlso>
-				<status:term_status><xsl:value-of select="$tila"/></status:term_status>
+				
+				<xsl:if test="$tila='Hyväksytty'">
+					<status:term_status>Recommendation</status:term_status>
+				</xsl:if>
+				
+				<xsl:if test="$tila='Luonnos'">
+					<status:term_status>Unstable</status:term_status>
+				</xsl:if>
+				
 			</skos:Concept>
 		<!--</xsl:if>-->
 	</xsl:template>
